@@ -34,7 +34,8 @@ public class Accounts {
 
 	public Boolean deposit(Integer accountNo, Integer sumDeposited) {
 		if(doesAccountExist(accountNo)){
-			numberToBalance.put(accountNo, sumDeposited);
+			int balance = getBalance(accountNo);
+			numberToBalance.put(accountNo, (balance + sumDeposited));
 			return true;
 		}
 		return false;

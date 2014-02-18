@@ -10,6 +10,7 @@ import org.junit.Test;
 
 import code.Accounts;
 import code.BackgroundCheck;
+import code.DepositMoneyHandler;
 import code.Display;
 import code.Money;
 import code.OpenAccountHandler;
@@ -35,9 +36,10 @@ public class TellerTest {
 		BackgroundCheck backGroundCheck  = new BackgroundCheck();
 
 		WithdrawMoneyHandler withdrawMoneyRequest = new WithdrawMoneyHandler(accounts,money,display);
-		OpenAccountHandler openAccountRequest = new OpenAccountHandler(accounts,backGroundCheck,display);		
+		OpenAccountHandler openAccountRequest = new OpenAccountHandler(accounts,backGroundCheck,display);
+		DepositMoneyHandler depositMoneyHandler = new DepositMoneyHandler(accounts, display);
 		
-		classUnderTest = new Teller(openAccountRequest,withdrawMoneyRequest);
+		classUnderTest = new Teller(openAccountRequest,withdrawMoneyRequest,depositMoneyHandler);
 		
 	}
 	
